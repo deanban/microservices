@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>File Metadata Microservice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="https://bootswatch.com/4/sketchy/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <br />
+    <div>
+      <a href="/"
+        ><button type="button" class="btn btn-primary btn-lg">Home</button></a
+      >
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="d-flex justify-content-center">
+      <div class="form-group">
+        <div class="input-group mb-3">
+          <div class="custom-file">
+            <form
+              action="/api/v1/upload"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <input type="file" id="file" name="file" />
+              <input type="submit" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
