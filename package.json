@@ -1,0 +1,20 @@
+{
+  "name": "microservices",
+  "version": "1.0.0",
+  "description": "freecodecamp microservices",
+  "main": "server.js",
+  "author": "Dean",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn start",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "moment": "^2.23.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
