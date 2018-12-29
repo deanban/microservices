@@ -31,9 +31,9 @@
     <div class="text-center">
       <h2>URL Shortener and Redirector</h2>
       <br />
-      <p>Provide URL into the field below, or go to "../api/v1/new/:URL"</p>
+      <p>Provide URL into the field below, or go to "../api/v1/urlshortener/new/:URL"</p>
 
-      <p>To test shortened URL: go to "../api/v1/:shortURL"</p>
+      <p>To test shortened URL: go to "../api/v1/urlshortener/short/:shortURL". It redirects to URL.</p>
     </div>
 
     <br />
@@ -46,10 +46,10 @@
             class="form-control form-control-lg"
             type="text"
             placeholder="Enter URL here. Don't forget to add http://.. or https://"
-            id="url"
-            name="url[providedURL]"
+            id="urlstr"
+            name="urlstr"
           />
-          <input type="submit" value="Send message" />
+          <input type="submit" value="Shorten my URL" />
         </form>
         <!-- /input-group -->
       </div>

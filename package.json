@@ -10,6 +10,8 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "ip": "^1.1.5",
     "moment": "^2.23.0",

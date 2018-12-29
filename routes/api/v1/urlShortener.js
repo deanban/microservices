@@ -6,16 +6,23 @@ const UrlShortener = require("../../models/UrlShortener");
 const urlValidator = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
 const shortUrlValidator = new RegExp("^(http|https)://", "i");
 
-router.get("/new/:url(*)", (req, res) => {
+router.get("/", (req, res) => {
+  res.render("urlshortener.ejs");
+});
+
+router.post("/new/:urlstr(*)", (req, res) => {
   const errors = {};
   const config = {};
   let shortened;
-  const { url } = req.params;
 
-  if (urlValidator.test(url) === true) {
+  const { urlstr } = req.body;
+  // const { urlstr } = req.params;
+  // console.log(urlstr);
+
+  if (urlValidator.test(urlstr) === true) {
     shortened = Math.floor(Math.random() * 100000).toString();
 
-    UrlShortener.findOne({ url: url })
+    UrlShortener.findOne({ url: urlstr })
       .then(result => {
         if (result) {
           res.json({ url: result.url, shortURL: result.shortURL });
@@ -38,7 +45,7 @@ router.get("/new/:url(*)", (req, res) => {
   }
 });
 
-router.get("/:shortUrl(*)", (req, res) => {
+router.get("/short/:shortUrl(*)", (req, res) => {
   const errors = {};
 
   UrlShortener.findOne({ shortURL: req.params.shortUrl })
