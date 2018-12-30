@@ -47,19 +47,21 @@ router.post("/add", (req, res) => {
 });
 
 /*************************************************/
-//Log Exercise by user or by user and date
+// Track Exercise by user or by user and date
 
 router.get("/log", (req, res) => {
   const errors = {};
   const resultObj = {};
   let userName;
 
-  const userid = Object.keys(req.query)[0];
-  //   console.log(userid);
+  const userid = Object.keys(req.query)[1];
+  // console.log(req.query);
 
-  const from = Object.keys(req.query)[1];
-  const to = Object.keys(req.query)[2];
-  console.log(from, to);
+  const from = Object.keys(req.query)[2];
+  const to = Object.keys(req.query)[3];
+  const limit = Object.keys(req.query)[0];
+  // console.log(from, to);
+  console.log("limit:", limit);
 
   let start = moment(from).toISOString();
   let end = moment(to).toISOString();
@@ -69,15 +71,17 @@ router.get("/log", (req, res) => {
     .then(user => {
       if (user) {
         // console.log(user);
-        if (from === undefined && to === undefined) {
+        if (from === undefined && to === undefined && limit === undefined) {
           //   console.log("find all");
           helpers.findAll(userid, res, resultObj, userName);
         } else if (to === undefined) {
           //   console.log("find by date");
           helpers.findByDate(userid, start, res);
-        } else {
+        } else if (limit === undefined) {
           //   console.log("find between date");
           helpers.findBetweenDates(userid, start, end, res);
+        } else {
+          helpers.findBetweenDatesWithLimit(userid, start, end, res, limit);
         }
       } else {
         errors.notfound = "User not found";

@@ -36,5 +36,13 @@ module.exports = {
         res.json(result);
       })
       .catch(err => res.status(400).json(err));
+  },
+  findBetweenDatesWithLimit: (userid, start, end, res, limit) => {
+    Exercise.find({ user: userid, date: { $gte: start, $lte: end } })
+      .limit(Number(limit))
+      .then(result => {
+        res.json(result);
+      })
+      .catch(err => res.status(400).json(err));
   }
 };
