@@ -5,6 +5,8 @@ const router = express.Router();
 const Exercise = require("../../models/Exercise");
 const User = require("../../models/User");
 
+const helpers = require("./helpers/exerciseTrackerHelpers");
+
 router.get("/", (_, res) => {
   res.render("exerciseTracker.ejs");
 });
@@ -49,6 +51,8 @@ router.post("/add", (req, res) => {
 
 router.get("/log", (req, res) => {
   const errors = {};
+  const resultObj = {};
+  let userName;
 
   const userid = Object.keys(req.query)[0];
   //   console.log(userid);
@@ -61,48 +65,19 @@ router.get("/log", (req, res) => {
   let end = moment(to).toISOString();
   //   console.log(start, end);
 
-  const findAll = () => {
-    Exercise.find({ user: userid })
-      .then(result => {
-        res.json(result);
-      })
-      .catch(err => res.status(400).json(err));
-  };
-
-  const findBetweenDates = () => {
-    Exercise.find({ user: userid, date: { $gte: start, $lte: end } })
-      .then(result => {
-        res.json(result);
-      })
-      .catch(err => res.status(400).json(err));
-  };
-
-  const findByDate = () => {
-    Exercise.find({ user: userid, date: start })
-      .then(result => {
-        // console.log(result);
-        res.json(result);
-      })
-      .catch(err => res.status(400).json(err));
-  };
-
   User.findOne({ _id: userid })
     .then(user => {
       if (user) {
         // console.log(user);
         if (from === undefined && to === undefined) {
           //   console.log("find all");
-          findAll();
-        } else if (from === undefined) {
-          //   console.log("from undefined");
-          errors.dateError = "You didn't provide a 'FROM' date";
-          res.json(errors);
+          helpers.findAll(userid, res, resultObj, userName);
         } else if (to === undefined) {
           //   console.log("find by date");
-          findByDate();
+          helpers.findByDate(userid, start, res);
         } else {
           //   console.log("find between date");
-          findBetweenDates();
+          helpers.findBetweenDates(userid, start, end, res);
         }
       } else {
         errors.notfound = "User not found";
