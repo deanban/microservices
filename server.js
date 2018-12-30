@@ -23,6 +23,10 @@ const Filemetadata = require("./routes/api/v1/fileMetadata");
 
 const Urlshortener = require("./routes/api/v1/urlShortener");
 
+const Users = require("./routes/api/v1/users");
+
+const ExerciseTracker = require("./routes/api/v1/exercise");
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // app.use(express.static(__dirname + "/public"));
@@ -33,6 +37,8 @@ app.use("/api/v1/timestamp", Timestamp);
 app.use("/api/v1/whoami", Headerparser);
 app.use("/api/v1/upload", Filemetadata);
 app.use("/api/v1/urlshortener", Urlshortener);
+app.use("/api/v1/users", Users);
+app.use("/api/v1/exercise", ExerciseTracker);
 
 const port = process.env.PORT || 3001;
 

@@ -4,10 +4,11 @@ const moment = require("moment");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  const date = new Date();
   return res.json({
-    unix: date.getTime(),
-    utc: date.toUTCString()
+    unix: moment().unix(),
+    utc: moment()
+      .utc()
+      .format("LLLL")
   });
 });
 

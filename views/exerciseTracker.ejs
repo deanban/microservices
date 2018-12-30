@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="https://bootswatch.com/4/sketchy/bootstrap.min.css"
+    />
+  </head>
+  <style>
+    .col-centered {
+      margin: 0 auto;
+      float: none;
+  }
+</style>
+<body>
+  <br />
+  <div>
+    <a href="/"
+      ><button type="button" class="btn btn-primary btn-lg">Home</button></a
+    >
+  </div>
+  <br />
+  <br />
+  <br />
+  <div class="text-center">
+    <h2>URL Shortener and Redirector</h2>
+    <br />
+    <p>Provide URL into the field below, or go to "../api/v1/urlshortener/new/:URL"</p>
+
+    <p>To test shortened URL: go to "../api/v1/urlshortener/short/:shortURL". It redirects to URL.</p>
+  </div>
+
+  <br />
+  <br />
+  <br />
+    <div class="col-lg-3 col-lg-offset-3 col-centered">
+      <form class="input-group" action="/api/v1/urlshortener/new/" method="post">
+        <input
+          class="form-control form-control-lg"
+          type="text"
+          placeholder="Enter URL here. Don't forget to add http://.. or https://"
+          id="urlstr"
+          name="urlstr"
+        />
+        <input
+          class="form-control form-control-lg"
+          type="text"
+          placeholder="Enter URL here. Don't forget to add http://.. or https://"
+          id="urlstr"
+          name="urlstr"
+        />
+        <input type="submit" value="Shorten my URL" />
+      </form>
+      <!-- /input-group -->
+    </div>
+    <!-- /.col-lg-4 -->
+
+  </div>
+</body>
+</html>
