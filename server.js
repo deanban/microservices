@@ -12,6 +12,7 @@ mongoose
   .connect(db)
   .then(() => console.log("***********DB Connected to mLab***********"))
   .catch(err => console.log(err));
+console.log(process.env.MONGO_URI);
 
 const index = require("./routes/api/v1/index");
 
@@ -41,7 +42,7 @@ app.use("/api/v1/users", Users);
 app.use("/api/v1/exercise", ExerciseTracker);
 
 const port = process.env.PORT || 3001;
-
+console.log(process.env.PORT);
 app.listen(port, () => {
   console.log(`App Listening on Port ${port}`);
 });
