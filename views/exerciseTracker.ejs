@@ -48,7 +48,7 @@
               <a class="nav-link" href="/api/v1/upload">File</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/api/v1/urlshortener">URl</a>
+              <a class="nav-link" href="/api/v1/urlshortener">URL</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/api/v1/users">User</a>
@@ -67,8 +67,8 @@
     >
   </div>
   <br />
-  <br />
-  <br />
+
+
   <div class="text-center">
     <h2>Exercise Tracker Microservice</h2>
     <p>Add Exercise</p>
@@ -77,8 +77,7 @@
   </div>
 
   <br />
-  <br />
-  <br />
+
 
     <div class="col-lg-3 col-lg-offset-3 col-centered">
       <form class="form-group" action="/api/v1/exercise/add/" method="post">
@@ -98,6 +97,7 @@
           <label for="date">Date</label>
           <input type="text" id="date" name="date" class="form-control" placeholder="date in YYYY-MM-DD format"/>
         </div>
+        <br/>
         <input
           type="submit"
           value="Add Exercise"
@@ -108,10 +108,8 @@
     <br/>
     <br/>
     <br/>
-    <br/>
-    <br/>
     <div class='text-center'>
-      <p>GET users's exercise log: GET /api/exercise/log?{userId}[&from][&to][&limit]</p>
+      <p>GET user's exercise log: GET /api/exercise/log?{userId}[&from][&to][&limit]</p>
       <p>{ } = required, [ ] = optional</p>
       <small>from, to = dates (yyyy-mm-dd); limit = number</small>
     </div>

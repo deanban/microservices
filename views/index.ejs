@@ -42,7 +42,7 @@
             <a class="nav-link" href="/api/v1/upload">File</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/api/v1/urlshortener">URl</a>
+            <a class="nav-link" href="/api/v1/urlshortener">URL</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/api/v1/users">User</a>
@@ -63,15 +63,15 @@
       >
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">Time Stamp Microservice</h5>
-          <small>1 days ago</small>
+          <small>3 days ago</small>
         </div>
         <p class="mb-1">
-          It will return a json with current date time if nothing is passed in
-          the link.
+          Try passing a date in utc or unix format in the link. Like-
+          ../api/v1/timestamp/dec 31 2008
         </p>
         <small
-          >Try passing a date in utc or unix format in the link. Like-
-          ../api/v1/timestamp/dec 12 2008</small
+          >Returns a json with current date time if nothing is passed in the
+          link.</small
         >
       </a>
       <a
@@ -80,7 +80,7 @@
       >
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">Header Parser Microservice</h5>
-          <small class="text-muted">1 days ago</small>
+          <small class="text-muted">3 days ago</small>
         </div>
         <p class="mb-1">
           It will grab system information about a system connected to the
@@ -94,7 +94,7 @@
       >
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">File Metadata Microservice</h5>
-          <small>1 days ago</small>
+          <small>2 days ago</small>
         </div>
         <p class="mb-1">Returns a json with the uploaded file information.</p>
         <small>Upload any file </small>
@@ -105,14 +105,14 @@
       >
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">URL Shortner and Redirect Microservice</h5>
-          <small>Today</small>
+          <small>2 days ago</small>
         </div>
         <p class="mb-1">
           Returns a json with a shortend version of the URL provided. Also
-          redirects to the original URL when a valid short url is provided.
+          redirects to the original URL when a valid short-url is passed.
         </p>
         <small
-          >Valid URL are in the format of "http:\\.." or "https:\\.."</small
+          >Valid URL are in the format of "http://.." or "https://.."</small
         >
       </a>
       <a
@@ -121,7 +121,7 @@
       >
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">Create User for Exercise-Tracker Microservice</h5>
-          <small>Today</small>
+          <small>1 day ago</small>
         </div>
         <p class="mb-1">
           Returns a json with a new user or if the user exists, returns user.
@@ -137,7 +137,7 @@
           <small>Today</small>
         </div>
         <p class="mb-1">Add exercises to user.</p>
-        <small>Track with ..api/v1/exercise/log</small>
+        <small>Track your exercises via ..api/v1/exercise/log api</small>
       </a>
     </div>
   </body>
