@@ -7,7 +7,6 @@ const app = express();
 //DB config
 const db = require("./config/keys").mongoURI;
 
-console.log("mongo uri:", process.env.MONGO_URI);
 console.log("node_env:", process.env.NODE_ENV);
 //connect to mongo
 mongoose
@@ -17,6 +16,7 @@ mongoose
   )
   .then(() => console.log("***********DB Connected to mLab***********"))
   .catch(err => console.log(err));
+console.log("mongo uri:", process.env.MONGO_URI);
 
 const index = require("./routes/api/v1/index");
 
